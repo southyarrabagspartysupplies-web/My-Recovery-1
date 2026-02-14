@@ -370,17 +370,44 @@ backend:
         -comment: "PATCH /api/user/settings working correctly. Successfully updates user profile settings including display name, timer settings, and emergency contacts."
 
 frontend:
-  - task: "Not Tested - Frontend Testing Not Required"
+  - task: "Login Flow"
     implemented: true
-    working: "NA"
-    file: "N/A"
+    working: true
+    file: "/app/frontend/app/auth.tsx"
     stuck_count: 0
-    priority: "low"
+    priority: "high"
     needs_retesting: false
     status_history:
-        -working: "NA"
-        -agent: "testing"
-        -comment: "Frontend testing was not performed as per testing agent instructions. Only backend API testing was conducted."
+        -working: true
+        -agent: "main"
+        -comment: "Login flow verified working. Users can log in with email/password and navigate to home page."
+
+  - task: "Registration Flow"
+    implemented: true
+    working: true
+    file: "/app/frontend/app/auth.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "main"
+        -comment: "Registration flow working. New users can create accounts and are redirected to onboarding."
+
+  - task: "Onboarding Flow"
+    implemented: true
+    working: true
+    file: "/app/frontend/app/onboarding.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: false
+        -agent: "user"
+        -comment: "User reported checkbox not interactive"
+        -working: true
+        -agent: "main"
+        -comment: "Checkbox was working but Alert on completion blocked navigation. Fixed by removing Alert dialog and navigating directly after successful API call."
 
 metadata:
   created_by: "testing_agent"
