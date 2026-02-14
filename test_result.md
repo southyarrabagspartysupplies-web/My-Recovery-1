@@ -101,3 +101,300 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Test the MyRecovery mobile app backend API completely. The backend is a FastAPI server running on port 8001 with MongoDB."
+
+backend:
+  - task: "Authentication Flow - Register"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "Registration endpoint working perfectly. Successfully created user with email sarah.wilson@example.com, returned valid JWT token and user data."
+
+  - task: "Authentication Flow - Login"  
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "Login endpoint working correctly. Existing user login successful with proper token generation."
+
+  - task: "Authentication Flow - Get Current User"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/auth/me endpoint working correctly. Successfully retrieves authenticated user information."
+
+  - task: "Authentication Flow - Onboarding"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "Onboarding completion endpoint working correctly. Successfully updates user profile with timezone, sponsor info, timer settings."
+
+  - task: "Coping Tools - Get List"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/coping-tools working correctly. Retrieved 9 coping tools with proper authentication check."
+
+  - task: "Coping Tools - Toggle Favorite"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "POST /api/coping-tools/{tool_id}/favorite working correctly. Successfully toggles favorite status."
+
+  - task: "Craving Sessions - Create"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "POST /api/craving-sessions working correctly. Successfully creates craving session with triggers, intensity, and timestamps."
+
+  - task: "Craving Sessions - Get All"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/craving-sessions working correctly. Successfully retrieves user's craving sessions."
+
+  - task: "Craving Sessions - Complete Session"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "PATCH /api/craving-sessions/{session_id}/complete working correctly. Successfully completes sessions with outcome tracking."
+
+  - task: "Journal - Create Entry"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "POST /api/journal working correctly. Successfully creates journal entries with craving data, triggers, tools used, and notes."
+
+  - task: "Journal - Get All Entries"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/journal working correctly. Successfully retrieves all user journal entries in reverse chronological order."
+
+  - task: "Journal - Get Single Entry"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/journal/{entry_id} working correctly. Successfully retrieves specific journal entry by ID."
+
+  - task: "Journal - Get Insights"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/journal/insights working correctly. Successfully generates insights including top triggers and most helpful tools."
+
+  - task: "Progress - Get Stats"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/progress working correctly. Successfully calculates progress stats including current streak, weekly cravings, and common triggers."
+
+  - task: "Progress - Get Chart Data"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/progress/chart-data working correctly. Successfully returns 14-day chart data for progress visualization."
+
+  - task: "Calendar - Get Events"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/calendar/events working correctly. Successfully retrieves user calendar events."
+
+  - task: "Calendar - Create Event"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "POST /api/calendar/events working correctly. Successfully creates calendar events with title, date, time, duration, and reminders."
+
+  - task: "Calendar - Delete Event"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "DELETE /api/calendar/events/{event_id} working correctly. Successfully deletes user calendar events."
+
+  - task: "Resources - Get List"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "GET /api/resources working correctly. Successfully retrieves user custom resources."
+
+  - task: "Resources - Create Resource"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "POST /api/resources working correctly. Successfully creates custom resources with title, URL, and notes."
+
+  - task: "Resources - Delete Resource"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "DELETE /api/resources/{resource_id} working correctly. Successfully deletes user custom resources."
+
+  - task: "User Settings - Update Settings"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "PATCH /api/user/settings working correctly. Successfully updates user profile settings including display name, timer settings, and emergency contacts."
+
+frontend:
+  - task: "Not Tested - Frontend Testing Not Required"
+    implemented: true
+    working: "NA"
+    file: "N/A"
+    stuck_count: 0
+    priority: "low"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "testing"
+        -comment: "Frontend testing was not performed as per testing agent instructions. Only backend API testing was conducted."
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "All backend API endpoints tested successfully"
+  stuck_tasks: []
+  test_all: true
+  test_priority: "high_first"
+
+agent_communication:
+    -agent: "testing"
+    -message: "Completed comprehensive backend API testing of MyRecovery app. All 21 API endpoints are working correctly including authentication, coping tools, craving sessions, journal entries, progress tracking, calendar events, custom resources, and user settings. Backend is fully functional with 100% success rate. Used real test data (sarah.wilson@example.com) instead of dummy data for realistic testing. All endpoints properly handle authentication via JWT Bearer tokens. MongoDB integration working correctly for data persistence."
