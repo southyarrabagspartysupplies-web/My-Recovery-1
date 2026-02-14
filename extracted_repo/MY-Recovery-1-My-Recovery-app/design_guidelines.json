@@ -1,0 +1,143 @@
+{
+  "project_name": "Anchor",
+  "design_philosophy": {
+    "identity": "Calm, Stabilizing, Minimal, One-Handed",
+    "core_principles": [
+      "Zone-Based Layout: Primary actions in the bottom 30% of the screen for one-handed use.",
+      "Cognitive Ease: Minimal text, large touch targets, soothing colors.",
+      "Safety First: Blue tones to reduce anxiety; avoid aggressive red for alerts unless critical.",
+      "Depth over Flatness: Use subtle colored shadows and blurs to create a soft, tactile feel."
+    ],
+    "emotional_tone": "Serene, Non-judgmental, Grounded"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Manrope, sans-serif",
+      "body": "Inter, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl md:text-5xl font-bold tracking-tight",
+      "h2": "text-3xl font-semibold tracking-tight",
+      "h3": "text-2xl font-semibold",
+      "body_lg": "text-lg leading-relaxed",
+      "body_base": "text-base leading-relaxed text-muted-foreground",
+      "caption": "text-sm text-muted-foreground/80"
+    },
+    "usage_rules": [
+      "Never use Inter for headings (h1-h3).",
+      "Headings should be tight (tracking-tight).",
+      "Body text should have relaxed line-height for calmness."
+    ]
+  },
+  "colors": {
+    "theme": "light",
+    "palette": {
+      "primary": {
+        "DEFAULT": "#0F4C75",
+        "foreground": "#FFFFFF",
+        "description": "Deep Ocean Blue - Trust, Stability. Used for primary actions (Urge button)."
+      },
+      "secondary": {
+        "DEFAULT": "#8DA399",
+        "foreground": "#FFFFFF",
+        "description": "Sage Leaf - Growth, Calm. Used for success states, secondary buttons."
+      },
+      "accent": {
+        "DEFAULT": "#ED7B58",
+        "foreground": "#FFFFFF",
+        "description": "Warm Coral - Use sparingly for highlights or 'Stop' actions that shouldn't be aggressive red."
+      },
+      "background": {
+        "DEFAULT": "#F0F4F8",
+        "paper": "#FFFFFF",
+        "description": "Ice Water - Very pale cool blue-grey for app background."
+      },
+      "muted": {
+        "DEFAULT": "#E2E8F0",
+        "foreground": "#64748B"
+      },
+      "text": {
+        "main": "#1B262C",
+        "muted": "#52606D"
+      }
+    },
+    "gradients": {
+      "subtle_ocean": "bg-gradient-to-b from-[#F0F4F8] to-[#E1E8ED]",
+      "calm_overlay": "bg-white/80 backdrop-blur-md"
+    }
+  },
+  "spacing_and_layout": {
+    "grid_system": "Mobile-first, single column. Use 'container' class with 'max-w-md' for mobile view simulation on desktop.",
+    "spacing_scale": {
+      "section_gap": "py-12",
+      "element_gap": "gap-6",
+      "internal_padding": "p-6"
+    },
+    "border_radius": {
+      "default": "rounded-2xl",
+      "button": "rounded-full",
+      "card": "rounded-3xl"
+    },
+    "one_handed_mode": [
+      "Place primary 'Urge' button fixed at the bottom (sticky) or in the bottom 20% of the viewport.",
+      "Navigation bar must be at the bottom.",
+      "Top 30% of screen reserved for viewing (Greeting, Status), not interacting."
+    ]
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-full text-lg shadow-lg shadow-primary/20 transition-all active:scale-95",
+      "secondary": "bg-secondary/20 text-secondary-foreground hover:bg-secondary/30 text-teal-900 h-12 rounded-full",
+      "ghost": "hover:bg-muted/50 text-muted-foreground"
+    },
+    "cards": {
+      "default": "bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-3xl p-6",
+      "interactive": "hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1"
+    },
+    "inputs": {
+      "default": "h-12 bg-white/50 border-transparent focus:border-primary/20 focus:bg-white focus:ring-4 focus:ring-primary/5 rounded-xl transition-all"
+    }
+  },
+  "visual_enhancers": {
+    "shadows": {
+      "soft": "shadow-[0_4px_20px_-2px_rgba(15,76,117,0.1)]",
+      "glow": "shadow-[0_0_40px_-10px_rgba(141,220,220,0.3)]"
+    },
+    "glassmorphism": "bg-white/60 backdrop-blur-lg border border-white/40",
+    "textures": "Use subtle noise texture overlay (opacity 0.03) on the main background to reduce digital harshness."
+  },
+  "motion": {
+    "page_transition": "initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}",
+    "micro_interactions": "Active scale down (0.98) on buttons. Staggered entrance for list items.",
+    "breathing_animation": "animate-pulse-slow (4s cycle) for the calm timer."
+  },
+  "assets": {
+    "image_style": "Calm, nature-inspired, desaturated or cool-toned. Avoid high-energy warm colors.",
+    "icons": "Lucide React (rounded variant). Stroke width 1.5px for lightness."
+  },
+  "accessibility": {
+    "contrast": "Ensure text is #1B262C on light backgrounds. Sage green backgrounds must use dark text or very high contrast white.",
+    "touch_targets": "Minimum 48x48px for all interactive elements."
+  },
+  "instructions_to_main_agent": [
+    "INSTALL 'lucide-react', 'framer-motion', 'clsx', 'tailwind-merge' first.",
+    "Do NOT use standard HTML <input> or <select>. Use Shadcn Input/Select components customized with the 'inputs.default' styles above.",
+    "Implement the 'Urge' button as a fixed or sticky element at the bottom of the Home screen.",
+    "Use 'Manrope' from Google Fonts. Import it in index.css.",
+    "For the 'Breathing' animation, create a custom keyframe in tailwind.config.js.",
+    "Ensure the layout is responsive but optimized for mobile (max-width containers centered on desktop)."
+  ],
+  "image_urls": {
+    "hero_calm": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1200",
+    "meditation_bg": "https://images.unsplash.com/photo-1518241353330-0fbf855e1c83?auto=format&fit=crop&q=80&w=1200",
+    "ocean_texture": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+  },
+  "universal_guidelines": [
+    "Do NOT center align the app container. Keep text natural (left-aligned) for readability.",
+    "Use 2-3x more spacing than typical. p-8 or p-10 is good.",
+    "Dark colors look good when used independently without gradients.",
+    "Use sonner for toasts.",
+    "Never use generic AI emojis."
+  ]
+}
