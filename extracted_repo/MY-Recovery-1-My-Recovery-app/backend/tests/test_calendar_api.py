@@ -6,7 +6,7 @@ import pytest
 import requests
 import os
 
-BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://anchor-recovery.preview.emergentagent.com').rstrip('/')
+BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://recovery-auth-flow.preview.emergentagent.com').rstrip('/')
 
 # Test user credentials
 TEST_EMAIL = "testuser_dark@test.com"

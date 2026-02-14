@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 import sys
 
 # Backend URL from environment
-BACKEND_URL = "https://wellness-recovery-1.preview.emergentagent.com/api"
+BACKEND_URL = "https://recovery-auth-flow.preview.emergentagent.com/api"
 
 class BackendTester:
     def __init__(self):
