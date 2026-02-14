@@ -36,23 +36,31 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   login: async (email, password) => {
     try {
+      console.log('[Auth] Attempting login for:', email);
       const response = await authAPI.login({ email, password });
+      console.log('[Auth] Login successful');
       await saveToken(response.data.token);
       set({ user: response.data.user, isAuthenticated: true });
       return { success: true, needsOnboarding: !response.data.user.onboarded };
     } catch (error: any) {
-      return { success: false, error: error.response?.data?.detail || 'Login failed' };
+      console.error('[Auth] Login error:', error.message);
+      const errorMsg = error.response?.data?.detail || error.message || 'Login failed. Please check your connection.';
+      return { success: false, error: errorMsg };
     }
   },
 
   register: async (email, password, displayName) => {
     try {
+      console.log('[Auth] Attempting registration for:', email);
       const response = await authAPI.register({ email, password, display_name: displayName });
+      console.log('[Auth] Registration successful');
       await saveToken(response.data.token);
       set({ user: response.data.user, isAuthenticated: true });
       return { success: true };
     } catch (error: any) {
-      return { success: false, error: error.response?.data?.detail || 'Registration failed' };
+      console.error('[Auth] Registration error:', error.message);
+      const errorMsg = error.response?.data?.detail || error.message || 'Registration failed. Please check your connection.';
+      return { success: false, error: errorMsg };
     }
   },
 
