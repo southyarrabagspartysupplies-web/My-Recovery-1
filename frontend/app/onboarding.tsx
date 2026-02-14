@@ -30,9 +30,8 @@ export default function Onboarding() {
   const handleComplete = async () => {
     const result = await completeOnboarding(formData);
     if (result.success) {
-      Alert.alert('Welcome!', 'Welcome to MyRecovery!', [
-        { text: 'OK', onPress: () => router.replace('/(tabs)/home') }
-      ]);
+      // Navigate directly to home after successful onboarding
+      router.replace('/(tabs)/home');
     } else {
       Alert.alert('Error', result.error || 'Failed to complete onboarding');
     }
