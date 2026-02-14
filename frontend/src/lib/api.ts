@@ -2,11 +2,29 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
-const BACKEND_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || process.env.EXPO_PUBLIC_BACKEND_URL || '';
+// Get backend URL from multiple sources with fallback
+const getBackendUrl = () => {
+  // Try expo config extra (from app.json)
+  const extraUrl = Constants.expoConfig?.extra?.EXPO_BACKEND_URL;
+  if (extraUrl) return extraUrl;
+  
+  // Try environment variable
+  const envUrl = process.env.EXPO_PUBLIC_BACKEND_URL;
+  if (envUrl) return envUrl;
+  
+  // Hardcoded fallback for production
+  return 'https://recovery-auth-flow.preview.emergentagent.com';
+};
+
+const BACKEND_URL = getBackendUrl();
 const API_BASE = `${BACKEND_URL}/api`;
+
+console.log('[API] Backend URL:', BACKEND_URL);
+console.log('[API] API Base:', API_BASE);
 
 const api = axios.create({
   baseURL: API_BASE,
+  timeout: 10000, // 10 second timeout
 });
 
 // Add auth token to requests
