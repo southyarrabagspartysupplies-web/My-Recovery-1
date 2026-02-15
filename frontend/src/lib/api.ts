@@ -16,9 +16,13 @@ const getBackendUrl = () => {
 const BACKEND_URL = getBackendUrl();
 const API_BASE = `${BACKEND_URL}/api`;
 
-console.log('[API] Platform:', Platform.OS);
-console.log('[API] Backend URL:', BACKEND_URL);
-console.log('[API] API Base:', API_BASE);
+// CRITICAL DEBUG LOG - Check what URL mobile is actually using
+console.log('===========================================');
+console.log('API BASE URL =', API_BASE);
+console.log('Platform =', Platform.OS);
+console.log('Constants.expoConfig?.extra =', JSON.stringify(Constants.expoConfig?.extra));
+console.log('process.env.EXPO_PUBLIC_BACKEND_URL =', process.env.EXPO_PUBLIC_BACKEND_URL);
+console.log('===========================================');
 
 const api = axios.create({
   baseURL: API_BASE,
