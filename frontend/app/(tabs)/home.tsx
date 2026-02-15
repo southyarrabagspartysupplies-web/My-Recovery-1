@@ -167,8 +167,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   headerLogo: {
-    width: 140,
-    height: 36,
+    width: 180,
+    height: 48,
   },
   menuButton: {
     width: 40,
