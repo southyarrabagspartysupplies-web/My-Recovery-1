@@ -166,11 +166,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
   },
-  logoText: {
-    fontSize: 13,
-    fontWeight: '600',
-    letterSpacing: 2,
-    color: 'rgba(255,255,255,0.8)',
+  headerLogo: {
+    width: 140,
+    height: 36,
   },
   menuButton: {
     width: 40,
