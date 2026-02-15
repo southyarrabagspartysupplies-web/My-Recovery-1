@@ -168,9 +168,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
   },
-  headerLogo: {
+  headerLogoWrapper: {
     width: 180,
     height: 48,
+  },
+  headerLogo: {
+    width: '100%',
+    height: '100%',
   },
   menuButton: {
     width: 40,
