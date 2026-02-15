@@ -1,9 +1,17 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
+import { Platform } from 'react-native';
 
-// Get backend URL from multiple sources with fallback
+// Get backend URL based on platform
 const getBackendUrl = () => {
+  // For web, use the same origin (requests go through nginx proxy)
+  if (Platform.OS === 'web') {
+    // Use relative URL for web - nginx proxies /api to backend
+    return '';
+  }
+  
+  // For mobile (iOS/Android), use the full URL
   // Try expo config extra (from app.json)
   const extraUrl = Constants.expoConfig?.extra?.EXPO_BACKEND_URL;
   if (extraUrl) return extraUrl;
@@ -17,9 +25,10 @@ const getBackendUrl = () => {
 };
 
 const BACKEND_URL = getBackendUrl();
-const API_BASE = `${BACKEND_URL}/api`;
+const API_BASE = BACKEND_URL ? `${BACKEND_URL}/api` : '/api';
 
-console.log('[API] Backend URL:', BACKEND_URL);
+console.log('[API] Platform:', Platform.OS);
+console.log('[API] Backend URL:', BACKEND_URL || '(relative)');
 console.log('[API] API Base:', API_BASE);
 
 const api = axios.create({
