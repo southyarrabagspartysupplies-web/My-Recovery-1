@@ -83,10 +83,11 @@ export default function Auth() {
         >
           {/* Logo */}
           <View style={styles.logoContainer}>
-            <View style={styles.logoBox}>
-              <Ionicons name="heart" size={32} color="#E57373" />
-            </View>
-            <Text style={styles.logoText}>MyRecovery</Text>
+            <Image 
+              source={require('../assets/images/logo.png')} 
+              style={styles.logoImage}
+              resizeMode="contain"
+            />
             <Text style={styles.tagline}>Your recovery companion</Text>
           </View>
 
