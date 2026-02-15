@@ -70,11 +70,13 @@ export default function Home() {
         {/* Top Bar */}
         <View style={styles.topBar}>
           <View style={styles.logoRow}>
-            <Image 
-              source={require('../../assets/images/logo.png')} 
-              style={styles.headerLogo}
-              resizeMode="contain"
-            />
+            <View style={styles.headerLogoWrapper}>
+              <Image 
+                source={require('../../assets/images/logo.png')} 
+                style={styles.headerLogo}
+                resizeMode="contain"
+              />
+            </View>
           </View>
           <TouchableOpacity
             style={styles.menuButton}
