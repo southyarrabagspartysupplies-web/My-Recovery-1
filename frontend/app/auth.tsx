@@ -218,10 +218,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 40,
   },
-  logoImage: {
+  logoWrapper: {
     width: 320,
     height: 100,
     marginBottom: 8,
+  },
+  logoImage: {
+    width: '100%',
+    height: '100%',
   },
   tagline: {
     fontSize: 14,
