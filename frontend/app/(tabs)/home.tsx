@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   headerLogoWrapper: {
-    width: 180,
-    height: 48,
+    width: 160,
+    height: 107,
   },
   headerLogo: {
     width: '100%',
