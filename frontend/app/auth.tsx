@@ -83,11 +83,13 @@ export default function Auth() {
         >
           {/* Logo */}
           <View style={styles.logoContainer}>
-            <Image 
-              source={require('../assets/images/logo.png')} 
-              style={styles.logoImage}
-              resizeMode="contain"
-            />
+            <View style={styles.logoWrapper}>
+              <Image 
+                source={require('../assets/images/logo.png')} 
+                style={styles.logoImage}
+                resizeMode="contain"
+              />
+            </View>
             <Text style={styles.tagline}>Your recovery companion</Text>
           </View>
 
