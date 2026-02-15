@@ -70,8 +70,11 @@ export default function Home() {
         {/* Top Bar */}
         <View style={styles.topBar}>
           <View style={styles.logoRow}>
-            <Ionicons name="heart" size={20} color="#E57373" />
-            <Text style={styles.logoText}>MYRECOVERY</Text>
+            <Image 
+              source={require('../../assets/images/logo.png')} 
+              style={styles.headerLogo}
+              resizeMode="contain"
+            />
           </View>
           <TouchableOpacity
             style={styles.menuButton}
