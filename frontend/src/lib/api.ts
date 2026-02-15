@@ -24,17 +24,36 @@ console.log('[API] API Base:', API_BASE);
 
 const api = axios.create({
   baseURL: API_BASE,
-  timeout: 10000, // 10 second timeout
+  timeout: 30000, // 30 second timeout for mobile networks
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // Add auth token to requests
 api.interceptors.request.use(async (config) => {
+  console.log('[API] Request:', config.method?.toUpperCase(), config.url);
   const token = await AsyncStorage.getItem('myrecovery_token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
+
+// Log responses and errors
+api.interceptors.response.use(
+  (response) => {
+    console.log('[API] Response:', response.status, response.config.url);
+    return response;
+  },
+  (error) => {
+    console.error('[API] Error:', error.message, error.config?.url);
+    if (error.code === 'ECONNABORTED') {
+      console.error('[API] Request timed out - check network connection');
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const authAPI = {
   register: (data: any) => api.post('/auth/register', data),
